@@ -11,41 +11,21 @@ public class Main {
 
         StringBuilder sb = new StringBuilder();
 
-        File tmp = new File("/Users/natalaganieva/Documents/Games/tmp");
-        if (tmp.mkdir())
-            sb.append("Каталог Games/tmp успешно создан, ");
+        String[] dirs = {"/Users/natalaganieva/Documents/Games/tmp",
+                "/Users/natalaganieva/Documents/Games/src",
+                "/Users/natalaganieva/Documents/Games/res",
+                "/Users/natalaganieva/Documents/Games/savegames",
+                "/Users/natalaganieva/Documents/Games/src/main",
+                "/Users/natalaganieva/Documents/Games/src/test",
+                "/Users/natalaganieva/Documents/Games/res/drawables",
+                "/Users/natalaganieva/Documents/Games/res/vectors",
+                "/Users/natalaganieva/Documents/Games/res/icons"};
 
-        File src = new File("/Users/natalaganieva/Documents/Games/src");
-        if (src.mkdir())
-            sb.append("каталог Games/src успешно создан, ");
+        for (String dir:dirs) {
+            createDirectory(dir, sb);
+        }
 
-        File res = new File("/Users/natalaganieva/Documents/Games/res");
-        if (res.mkdir())
-            sb.append("каталог Games/res успешно создан, ");
 
-        File savegames = new File("/Users/natalaganieva/Documents/Games/savegames");
-        if (savegames.mkdir())
-            sb.append("каталог Games/savegames успешно создан, ");
-
-        File main = new File("/Users/natalaganieva/Documents/Games/src/main");
-        if (main.mkdir())
-            sb.append("Каталог Games/src/main успешно создан, ");
-
-        File test = new File("/Users/natalaganieva/Documents/Games/src/test");
-        if (test.mkdir())
-            sb.append("каталог Games/src/test успешно создан, ");
-
-        File drawables = new File("/Users/natalaganieva/Documents/Games/res/drawables");
-        if (drawables.mkdir())
-            sb.append("каталог Games/res/drawables успешно создан, ");
-
-        File vectors = new File("/Users/natalaganieva/Documents/Games/res/vectors");
-        if (vectors.mkdir())
-            sb.append("каталог Games/res/vectors успешно создан, ");
-
-        File icons = new File("/Users/natalaganieva/Documents/Games/res/icons");
-        if (icons.mkdir())
-            sb.append("каталог Games/res/icons успешно создан, ");
 
         File logFile = new File("/Users/natalaganieva/Documents/Games/tmp/tmp.txt");
         try {
@@ -66,6 +46,16 @@ public class Main {
 
     }
 
-}
+    public static StringBuilder createDirectory(String path, StringBuilder sb) {
+
+        File dir = new File(path);
+        if (dir.mkdir()) {
+            sb.append("каталог " + path + " успешно создан, ");
+        }
+        return sb;
+    }
+    }
+
+
 
 
