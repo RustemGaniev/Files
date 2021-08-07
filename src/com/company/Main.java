@@ -6,12 +6,12 @@ import java.io.IOException;
 
 public class Main {
 
-
     public static void main(String[] args) {
 
         StringBuilder sb = new StringBuilder();
 
-        String[] dirs = {"/Users/natalaganieva/Documents/Games/tmp",
+        String[] dirs = {"/Users/natalaganieva/Documents/Games",
+                "/Users/natalaganieva/Documents/Games/tmp",
                 "/Users/natalaganieva/Documents/Games/src",
                 "/Users/natalaganieva/Documents/Games/res",
                 "/Users/natalaganieva/Documents/Games/savegames",
@@ -21,11 +21,9 @@ public class Main {
                 "/Users/natalaganieva/Documents/Games/res/vectors",
                 "/Users/natalaganieva/Documents/Games/res/icons"};
 
-        for (String dir:dirs) {
+        for (String dir : dirs) {
             createDirectory(dir, sb);
         }
-
-
 
         File logFile = new File("/Users/natalaganieva/Documents/Games/tmp/tmp.txt");
         try {
@@ -43,7 +41,6 @@ public class Main {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
-
     }
 
     public static StringBuilder createDirectory(String path, StringBuilder sb) {
@@ -54,8 +51,4 @@ public class Main {
         }
         return sb;
     }
-    }
-
-
-
-
+}
